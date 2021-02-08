@@ -15,16 +15,15 @@
     },
     methods: {
     filterGenre : function(){
-      const self = this;
-      let optionGenre = [];
       this.diskList.forEach(item => {
-        optionGenre.push(item.genre)
+        if(this.genreList.includes(item.genre)){
+            return
+          }else{
+            this.genreList.push(item.genre)
+          }
       });
-      this.genreList =  optionGenre.filter((item, index)=>{
-        return optionGenre.indexOf(item) === item
-      })
+      }
 
-    },
     },
   })
   Vue.config.devtools = true
