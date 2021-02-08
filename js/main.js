@@ -7,7 +7,7 @@
 
   },
     mounted(){
-      const self = this;
+      // const self = this; ??????
       axios.get('https://flynn.boolean.careers/exercises/api/array/music')
       .then(response => {
         this.diskList = response.data.response;
