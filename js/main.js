@@ -1,23 +1,23 @@
 new Vue({
   el: '#root',
   data:{
-  disk: [],
+  diskList: [],
   genreList : [],
-  genreSelect : 'All'
+
 },
   mounted(){
     const self = this;
     axios.get('https://flynn.boolean.careers/exercises/api/array/music')
     .then(response => {
       console.log(response)
-      self.disk = response.data.response;
+      self.diskList = response.data.response;
     })
   },
   methods: {
   filterGenre : function(){
     const self = this;
-    const optionGenre = [];
-    this.disk.forEach(item => {
+    let optionGenre = [];
+    this.diskList.forEach(item => {
       this.optionGenre.push(item.genre)
     });
     this.genreList =  optionGenre.filter((item,index)=>{
