@@ -19,6 +19,10 @@
     </div>
   </header>
 
+  <select class="select-genre" name="" @click="filterGenre">
+    <option v-for="item in genreList">{{item}}</option>
+  </select>
+
   <div class="cds-container container" >
     <!-- Disco ad esempio -->
     <div class="cd" v-for="cd in disk">
