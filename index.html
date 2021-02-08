@@ -19,13 +19,14 @@
     </div>
   </header>
 
-  <select class="select-genre" name="" @click="filterGenre">
-    <option v-for="item in genreList">{{item}}</option>
+  <select class="select-genre" v-model="genreSelect" @click="filterGenre()">
+    <option value="All">All</option>
+    <option v-for="element in genreList">{{element}}</option>
   </select>
 
   <div class="cds-container container" >
     <!-- Disco ad esempio -->
-    <div class="cd" v-for="cd in diskList">
+    <div class="cd" v-for="cd in diskList" v-if="cd.genre === genreSelect || genreSelect === 'All' ">>
       <img :src="cd.poster" alt="">
       <h3>{{cd.title}}</h3>
       <span class="author">{{cd.author}}</span>
